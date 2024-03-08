@@ -8,8 +8,8 @@ Hi there, welcome to my homepage. It is hosted on _GitHub Pages_ and can be foun
 -   [ ] _prettier_ GH action on push
 -   [ ] _lint_ GH action on push
 -   [ ] Suport bright mode
--   [ ] Translate to english.
 - [ ] Spellcheck GH Action
+-   [ ] English translation
 
 ## Sources
 
