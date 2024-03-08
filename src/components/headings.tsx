@@ -1,7 +1,12 @@
 // author: meisto
 // date: 2024-03-06 16:00:39
 
-export default function Heading({ heading, children }) {
+interface HeadingProps {
+   heading: string
+   children: React.ReactNode
+}
+
+export default function Heading({ heading, children }: HeadingProps) {
     const style = " font-bold tracking-tighter";
 
     switch (heading) {

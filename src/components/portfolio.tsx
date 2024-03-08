@@ -29,7 +29,8 @@ const myProjects: Project[] = [
     },
 ];
 
-function ProjectCard({ project }) {
+
+function ProjectCard({ project }: {project: Project}) {
     return (
         <div className="sm:w-[clamp(350px,45%,400px)] sm:aspect-[3/2] w-full sm:px-4 sm:py-2 sm:rounded-lg sm:border sm:shadow-lg border-[#87AF87]/75 h-fit select-none transition-transform hover:translate-y-1 flex flex-col justify-between">
             <h4 className="font-bold sm:text-lg text-sm">{project.name}</h4>
@@ -37,7 +38,7 @@ function ProjectCard({ project }) {
 
             <div className="flex flex-row justify-between items-center">
                 <ul className="flex flex-row gap-2 justify-center flex-wrap mt-2">
-                    {project.tags.map((x) => (
+                    {project.tags.map((x: string) => (
                         <li className="p-1 bg-[#58729e] rounded-lg italic text-sm">
                             {x}
                         </li>

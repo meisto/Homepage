@@ -9,10 +9,10 @@ import Navbar from "./components/navbar";
 import { useIsVisible } from "./hooks/visible";
 
 export default function App() {
-    const refHome = useRef();
-    const refAbout = useRef();
-    const refPortfolio = useRef();
-    const refContact = useRef();
+    const refHome = useRef<any>(null);
+    const refAbout = useRef<any>(null);
+    const refPortfolio = useRef<any>(null);
+    const refContact = useRef<any>(null);
 
     const isHomeIntersecting = useIsVisible(refHome);
     const isAboutIntersecting = useIsVisible(refAbout);

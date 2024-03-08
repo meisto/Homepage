@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 
-export function useIsVisible(ref) {
+export function useIsVisible(ref: React.MutableRefObject<HTMLDivElement>) {
     const [isIntersecting, setIsIntersecting] = useState(false);
 
     useEffect(() => {

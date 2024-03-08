@@ -1,14 +1,10 @@
 // author: meisto
 // date: 2024-03-07 23:33:01
 
-import Heading from "./headings";
-
 export default function AboutPane() {
     return (
         <>
-            <Heading heading="h2" className="text-2xl">
-                Über
-            </Heading>
+            <h2 className="text-2xl"> Über </h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.

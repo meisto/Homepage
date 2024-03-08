@@ -3,9 +3,17 @@
 
 import { Terminal } from "lucide-react";
 
-function NavbarNavigationButton({ children, target, active }) {
-    const moveToFactory = (x: string) => () =>
-        document.getElementById(x).scrollIntoView({ behavior: "smooth" });
+interface NavbarNavigationButtonProps {
+   target: string
+   active: boolean
+   children: React.ReactNode
+}
+
+function NavbarNavigationButton({ children, target, active }: NavbarNavigationButtonProps) {
+    const moveToFactory = (x: string) => () => {
+        const el = document.getElementById(x)
+         if (el) el.scrollIntoView({ behavior: "smooth" });
+   };
 
     return (
         <>
@@ -24,14 +32,24 @@ function NavbarNavigationButton({ children, target, active }) {
     );
 }
 
+type NavbarProps = {
+    homeActive: boolean
+    aboutActive: boolean
+    portfolioActive: boolean
+    contactActive: boolean
+}
+
 export default function Navbar({
     homeActive,
     aboutActive,
     portfolioActive,
     contactActive,
-}) {
-    const moveToFactory = (x: string) => () =>
-        document.getElementById(x).scrollIntoView({ behavior: "smooth" });
+}: NavbarProps) {
+    const moveToFactory = (x: string) => () => {
+        const doc = document.getElementById(x)
+         if (doc) doc.scrollIntoView({ behavior: "smooth" });
+
+   };
 
     return (
         <nav className="w-screen flex flex-row py-2 px-4 justify-between items-center fixed top-0 backdrop-blur-sm bg-gray-200/5 drop-shadow-md">
