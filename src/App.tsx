@@ -1,79 +1,104 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 
-import PortfolioPane from "./components/portfolio";
-import ContactPane from "./components/contact";
-import HomePane from "./components/home";
-import AboutPane from "./components/about";
-import Navbar from "./components/navbar";
+import PortfolioPane from './components/portfolio';
+import ContactPane from './components/contact';
+import HomePane from './components/home';
+import AboutPane from './components/about';
+import Navbar from './components/navbar';
 
-import { useIsVisible } from "./hooks/visible";
+import { useIsVisible } from './hooks/visible';
 
 export default function App() {
-    const refHome = useRef<any>(null);
-    const refAbout = useRef<any>(null);
-    const refPortfolio = useRef<any>(null);
-    const refContact = useRef<any>(null);
+   const refHome = useRef<any>(null);
+   const refAbout = useRef<any>(null);
+   const refPortfolio = useRef<any>(null);
+   const refContact = useRef<any>(null);
 
-    const isHomeIntersecting = useIsVisible(refHome);
-    const isAboutIntersecting = useIsVisible(refAbout);
-    const isPortfolioIntersecting = useIsVisible(refPortfolio);
-    const isContactIntersecting = useIsVisible(refContact);
+   const isHomeIntersecting = useIsVisible(refHome);
+   const isAboutIntersecting = useIsVisible(refAbout);
+   const isPortfolioIntersecting = useIsVisible(refPortfolio);
+   const isContactIntersecting = useIsVisible(refContact);
 
-    const paneDefaultClass = "snap-center w-full flex flex-col ";
+   const paneDefaultClass = 'snap-center w-full flex flex-col ';
+   const transition = 'transition-all duration-500 delay-100 ease-in-out ';
 
-    return (
-        <>
-            <Navbar
-                homeActive={isHomeIntersecting}
-                aboutActive={isAboutIntersecting}
-                portfolioActive={isPortfolioIntersecting}
-                contactActive={isContactIntersecting}
-            />
+   const transitionMode1 = 'opacity-100 translate-x-0';
+   const transitionMode2 = 'opacity-0 -translate-x-5';
 
-            <main className="snap-mandatory snap-y w-screen h-screen overflow-scroll dark:bg-[#333333] dark:text-white/70 sm:p-10 p-4">
-                <div className="flex flex-col gap-[50vh] w-full">
-                    <div
-                        ref={refHome}
-                        className={paneDefaultClass + "h-screen justify-center"}
-                        id="home"
-                    >
-                        <HomePane />
-                    </div>
+   // const background = 'bg-[#292929]';
+   // const background = "bg-gradient-to-br from-[#333333] to-[#4C5C51]"
+   const background = 'my-background';
 
-                    <div
-                        ref={refAbout}
-                        className={
-                            paneDefaultClass +
-                            "transition-all duration-500 delay-100 ease-in-out " +
-                            (isAboutIntersecting
-                                ? "opacity-100 translate-x-0"
-                                : "opacity-0 -translate-x-5")
-                        }
-                        id="section-ueber"
-                    >
-                        <AboutPane />
-                    </div>
+   return (
+      <>
+         <Navbar
+            homeActive={isHomeIntersecting}
+            aboutActive={isAboutIntersecting}
+            portfolioActive={isPortfolioIntersecting}
+            contactActive={isContactIntersecting}
+         />
 
-                    <div
-                        ref={refPortfolio}
-                        className={paneDefaultClass + "justify-center"}
-                        id="section-portfolio"
-                    >
-                        <PortfolioPane />
-                    </div>
+         <main
+            className={
+               'scroll-smooth snap-mandatory snap-y w-screen h-screen overflow-scroll text-white/70 sm:p-10 p-4 z-100 ' +
+               background
+            }
+         >
+            <div className="flex flex-col gap-[50vh] w-full">
+               <div
+                  ref={refHome}
+                  className={
+                     paneDefaultClass +
+                     transition +
+                     'h-screen justify-center ' +
+                     (isHomeIntersecting ? transitionMode1 : transitionMode2)
+                  }
+                  id="home"
+               >
+                  <HomePane />
+               </div>
 
-                    <div
-                        ref={refContact}
-                        className={
-                            paneDefaultClass +
-                            "h-screen justify-center items-center"
-                        }
-                        id="section-kontakt"
-                    >
-                        <ContactPane />
-                    </div>
-                </div>
-            </main>
-        </>
-    );
+               <div
+                  ref={refAbout}
+                  className={
+                     paneDefaultClass +
+                     transition +
+                     (isAboutIntersecting ? transitionMode1 : transitionMode2)
+                  }
+                  id="section-ueber"
+               >
+                  <AboutPane />
+               </div>
+
+               <div
+                  ref={refPortfolio}
+                  className={
+                     paneDefaultClass +
+                     transition +
+                     'justify-center ' +
+                     (isPortfolioIntersecting
+                        ? transitionMode1
+                        : transitionMode2)
+                  }
+                  id="section-portfolio"
+               >
+                  <PortfolioPane />
+               </div>
+
+               <div
+                  ref={refContact}
+                  className={
+                     paneDefaultClass +
+                     transition +
+                     'h-screen justify-center items-center ' +
+                     (isContactIntersecting ? transitionMode1 : transitionMode2)
+                  }
+                  id="section-kontakt"
+               >
+                  <ContactPane />
+               </div>
+            </div>
+         </main>
+      </>
+   );
 }

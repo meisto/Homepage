@@ -1,30 +1,73 @@
 // author: meisto
 // date: 2024-03-07 23:33:01
 
+import { Check } from 'lucide-react';
+
+import Heading from './headings';
+
+const itemsFrontend = ['TypeScript', 'HTML, CSS, JavaScript', 'React', 'Svelte'];
+const itemsBackend = ['Linux', 'Python', 'FastAPI', 'Go'];
+const itemsDevOps = ['Docker (Compose)', 'Ansible', 'GitHub Actions']
+
+interface ListItemProps {
+   content: string;
+}
+
+interface ListProps {
+   heading?: string;
+   items: ListItemProps[];
+}
+
+function ListItem({ content }: ListItemProps) {
+   return (
+      <li className="flex gap-2 m-2">
+         <Check color="#87AF87" />
+         <span className="font-bold">{content}</span>
+      </li>
+   );
+}
+
+function List({ items, heading }: ListProps) {
+   return (
+      <div className="w-full w-fit">
+         {heading && <h2 className="w-full font-bold text-xl">{heading}</h2>}
+         <ul>
+            {items.map((x) => (
+               <ListItem content={x} />
+            ))}
+         </ul>
+      </div>
+   );
+}
+
 export default function AboutPane() {
-    return (
-        <>
-            <h2 className="text-2xl"> Über </h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Felis donec et odio pellentesque diam volutpat commodo sed
-                egestas. Vitae turpis massa sed elementum tempus egestas sed
-                sed. Phasellus vestibulum lorem sed risus ultricies tristique.
-                Viverra suspendisse potenti nullam ac tortor vitae purus. At in
-                tellus integer feugiat scelerisque varius morbi enim nunc.
-                Mattis rhoncus urna neque viverra. Ipsum a arcu cursus vitae
-                congue mauris. Enim sed faucibus turpis in eu mi. Tellus cras
-                adipiscing enim eu turpis egestas. Lectus urna duis convallis
-                convallis tellus id interdum velit laoreet. Interdum consectetur
-                libero id faucibus. Sit amet mauris commodo quis imperdiet massa
-                tincidunt nunc. Morbi leo urna molestie at elementum eu
-                facilisis. Non pulvinar neque laoreet suspendisse interdum
-                consectetur libero. Lobortis mattis aliquam faucibus purus in
-                massa. Sodales ut eu sem integer vitae justo eget magna
-                fermentum. Feugiat nibh sed pulvinar proin gravida hendrerit
-                lectus. Nulla aliquet porttitor lacus luctus accumsan.
-            </p>
-        </>
-    );
+   return (
+      <>
+         <Heading heading="h2" className="text-2xl text-center">
+            Über
+         </Heading>
+         <p className="py-4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar
+            elementum integer enim neque volutpat ac tincidunt vitae semper.
+            Faucibus et molestie ac feugiat sed lectus vestibulum. Lectus mauris
+            ultrices eros in cursus turpis massa. Lacus laoreet non curabitur
+            gravida arcu ac tortor dignissim. Neque laoreet suspendisse interdum
+            consectetur libero id faucibus. Egestas sed sed risus pretium. In
+            ante metus dictum at tempor commodo ullamcorper. Libero nunc
+            consequat interdum varius sit. Tellus in metus vulputate eu. Quam
+            lacus suspendisse faucibus interdum. Ultrices neque ornare aenean
+            euismod elementum nisi quis. Mus mauris vitae ultricies leo integer.
+            Curabitur gravida arcu ac tortor dignissim. Adipiscing bibendum est
+            ultricies integer quis. Cras ornare arcu dui vivamus arcu. Ut
+            tristique et egestas quis. Mi eget mauris pharetra et ultrices neque
+            ornare.
+         </p>
+         <div className="flex flex-row justify-around items-start w-full flex-wrap">
+            <List items={itemsFrontend} heading="Frontend" />
+            <List items={itemsBackend} heading="Backend" />
+            <List items={itemsDevOps} heading="DevOps" />
+         </div>
+      </>
+   );
 }
