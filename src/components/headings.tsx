@@ -6,7 +6,7 @@ import GradSpan from './gradspan';
 interface HeadingProps {
    heading: string;
    children: React.ReactNode;
-   className: string;
+   className?: string;
 }
 
 export default function Heading({

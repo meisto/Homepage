@@ -5,7 +5,7 @@ type GradSpanProps = {
    children: React.ReactNode;
 };
 
-export default function GradSpan({ children, colorscheme }: GradSpanProps) {
+export default function GradSpan({ children }: GradSpanProps) {
    return (
       <span className="bg-gradient-to-br from-[#87AF87] to-green bg-clip-text text-transparent">
          {' '}

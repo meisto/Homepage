@@ -10,7 +10,7 @@ export default function ContactPane() {
    return (
       <>
          <Heading heading="h2">
-            <GradSpan colorscheme="mine">Kontakt</GradSpan>
+            <GradSpan>Kontakt</GradSpan>
          </Heading>
          <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

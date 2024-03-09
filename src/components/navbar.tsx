@@ -14,12 +14,6 @@ function NavbarNavigationButton({
    target,
    active,
 }: NavbarNavigationButtonProps) {
-   const moveToFactory = (x: string) => () => {
-      console.log("Moving to: ", x)
-      const el = document.getElementById(x);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-   };
-
    return (
       <>
          <a href={"#" + target} className="relative" >
@@ -45,11 +39,6 @@ export default function Navbar({
    portfolioActive,
    contactActive,
 }: NavbarProps) {
-   const moveToFactory = (x: string) => () => {
-      const doc = document.getElementById(x);
-      if (doc) doc.scrollIntoView({ behavior: 'smooth' });
-   };
-
    return (
       <nav className="select-none w-screen flex flex-row py-2 px-4 justify-between items-center fixed top-0 backdrop-blur-sm bg-gray-200/5 drop-shadow-md z-50">
          <a href="#home"

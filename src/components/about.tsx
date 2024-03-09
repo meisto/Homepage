@@ -9,16 +9,12 @@ const itemsFrontend = ['TypeScript', 'HTML, CSS, JavaScript', 'React', 'Svelte']
 const itemsBackend = ['Linux', 'Python', 'FastAPI', 'Go'];
 const itemsDevOps = ['Docker (Compose)', 'Ansible', 'GitHub Actions']
 
-interface ListItemProps {
-   content: string;
-}
-
 interface ListProps {
    heading?: string;
-   items: ListItemProps[];
+   items: string[];
 }
 
-function ListItem({ content }: ListItemProps) {
+function ListItem({ content }: {content: string}) {
    return (
       <li className="flex gap-2 m-2">
          <Check color="#87AF87" />

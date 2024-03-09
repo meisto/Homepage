@@ -51,9 +51,9 @@ export default function HomePane() {
                   <span className="text-gray-300/50">meisto</span>
                </Heading>
                <Heading heading="h1">
-                  <GradSpan colorscheme="mine">Entwickler</GradSpan>
+                  <GradSpan>Entwickler</GradSpan>
                   <br />
-                  <GradSpan colorscheme="mine">
+                  <GradSpan>
                      <span className="text-gray-300/50 mx-1">&amp;</span>
                      <span className={"transition-opacity duration-1000 " + (showDescription ? "opacity-100" : "opacity-0")}>{nomen[description]}</span>
                   </GradSpan>
@@ -62,7 +62,7 @@ export default function HomePane() {
                   Hallo und herzlich wilkommen auf meiner Webseite. Ich bin
                   Tobias, ein Softwareentwickler aus
                   <em>
-                     <GradSpan colorscheme="mine">Baden-Württemberg</GradSpan>
+                     <GradSpan>Baden-Württemberg</GradSpan>
                   </em>
                   .
                </p>

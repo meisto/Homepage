@@ -11,6 +11,7 @@ Hi there, welcome to my homepage. It is hosted on _GitHub Pages_ and can be foun
 -  [ ] Suport bright mode
 -  [ ] Spellcheck GH Action
 -  [ ] English translation
+- [ ] Add pre-commit hook to check building to reduce number of unnecessary commits.
 
 ## Sources
 
